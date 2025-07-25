@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Electricity Cost Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        h2 {
+            color: #2c3e50;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #34495e;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h2>Electricity Cost Predictor</h2>
+    <form action="/predict" method="post">
+        <label>Site Area:</label>
+        <input type="number" name="site_area" required>
+
+        <label>Water Consumption:</label>
+        <input type="number" step="any" name="water_consumption" required>
+
+        <label>Recycling Rate:</label>
+        <input type="number" name="recycling_rate" required>
+
+        <label>Utilisation Rate:</label>
+        <input type="number" name="utilisation_rate" required>
+
+        <label>Air Quality Index:</label>
+        <input type="number" name="air_quality_index" required>
+
+        <label>Issue Resolution Time:</label>
+        <input type="number" name="issue_resolution_time" required>
+
+        <label>Resident Count:</label>
+        <input type="number" name="resident_count" required>
+
+        <label>Structure Type:</label>
+        <select name="structure_type" required>
+            <option value="Residential">Residential</option>
+            <option value="Mixed-use">Mixed-use</option>
+            <option value="Commercial">Commercial</option>
+        </select>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+</body>
+</html>
