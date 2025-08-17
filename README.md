@@ -53,7 +53,7 @@ Estimate the **monthly electricity cost** of a building/structure from site, usa
 | Metric | Score |
 |---|---|
 | R² | **0.96** |
-| RMSE | **≈ ₹221** |
+| RMSE | **≈ 221** |
 | MSE | **48,800.04** |
 
 > Interpretation: The model explains ~96% of target variance and yields an average absolute error on the order of a few hundred rupees.
